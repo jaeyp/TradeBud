@@ -8,15 +8,18 @@ import 'package:flutter_bp/core/theme/app_theme.dart';
 import 'package:flutter_bp/l10n/app_localizations.dart';
 
 Future<void> main() async {
-  await runZonedGuarded(() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    await dotenv.load(fileName: '.env');
-    runApp(const ProviderScope(child: MyApp()));
-  }, (error, stack) {
-    // TODO: Initialize crash reporting service here (e.g., Sentry, Firebase Crashlytics)
-    debugPrint('Error: $error');
-    debugPrint('Stack: $stack');
-  });
+  await runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await dotenv.load(fileName: '.env');
+      runApp(const ProviderScope(child: MyApp()));
+    },
+    (error, stack) {
+      // TODO: Initialize crash reporting service here (e.g., Sentry, Firebase Crashlytics)
+      debugPrint('Error: $error');
+      debugPrint('Stack: $stack');
+    },
+  );
 }
 
 class MyApp extends ConsumerWidget {
@@ -28,7 +31,7 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp.router(
       routerConfig: goRouter,
-      title: 'Flutter Boilerplate',
+      title: 'Trade Bud',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       localizationsDelegates: const [

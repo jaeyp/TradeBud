@@ -9,12 +9,8 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.homeTitle),
-      ),
-      body: const Center(
-        child: Text('Welcome to Flutter Boilerplate'),
-      ),
+      appBar: AppBar(title: Text(l10n.appTitle)),
+      body: const Center(child: Text('Welcome to Trade Bud')),
     );
   }
 }
